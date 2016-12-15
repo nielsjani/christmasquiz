@@ -1,30 +1,13 @@
-# Angular 2 Master Class
-
-This is the Angular 2 Master Class exercise repository. Here's where you'll build your Angular application throughout this training.
-
-Please make sure to follow our [Preparation Guide](http://thoughtram.io/prepare-for-your-training.html) to set up your machine **before** you come to the class.
-
-If not done already, clone this repository using:
+# Q-Mas quiz project 
+## In Angular 2!
+Based on Thoughtram's excellent Angular 2 [master class starter project](https://github.com/thoughtram/angular2-master-class-starter). 
+## How to run:
 
 ```
-$ git clone https://github.com/thoughtram/angular2-master-class-starter.git
+1. git clone
+2. cd into folder
+3. npm install
+4. ng serve 
+4a. npm install -g angular-cli if previous step fails, then try again
+5. open browser on localhost:4200
 ```
-
-Done? Great, now install the dependencies (this might take a little while):
-
-```
-$ cd angular2-master-class-starter
-$ npm install
-```
-
-Then run the application by executing:
-
-```
-$ ng serve
-```
-
-Then open up your browser at `http://localhost:4200`
-
-Have fun and good luck!
-
-Christoph & Pascal & Thomas
