@@ -1,17 +1,30 @@
 <div class="container">
 
-  <quiz-question-image>
+  <div class="row">
+    <div class="col-xs-1 col-md-1"></div>
+    <div class="col-xs-1 col-md-1" *ngFor="let question of questions; let ind = index;">
+      <a (click)="goToQuestion(ind)">
+        <span class="glyphicon glyphicon-ok" style="font-size: 75px;" aria-hidden="true" [style.color]="isSolved(ind)"></span>
+      </a>
+    </div>
+  </div>
+
+  <quiz-question-image
+    [questionImage]="getCurrentImageUrl()"
+    [solvedBefore]="isCurrentQuestionSolvedBefore()"
+    [answer]="getCurrentQuestionAnswer()"
+    (answeredCorrectly)="currentQuestionSolved()">
   </quiz-question-image>
 
   <div class="row">
     <div class="col-xs-offset-1 col-xs-1 col-md-offset-1 col-md-1">
-      <a>
-        <span class="glyphicon glyphicon glyphicon-chevron-left" style="font-size: 75px;" aria-hidden="true"></span>
+      <a (click)="previousQuestion()" *ngIf="currentQuestion > 0">
+        <span class="glyphicon glyphicon-chevron-left" style="font-size: 75px;" aria-hidden="true"></span>
       </a>
     </div>
     <div class="col-xs-offset-9 col-xs-1 col-md-offset-9 col-md-1">
-      <a>
-        <span class="glyphicon glyphicon glyphicon-chevron-right" style="font-size: 75px;" aria-hidden="true"></span>
+      <a (click)="nextQuestion()" *ngIf="currentQuestion < questions.length -1">
+        <span class="glyphicon glyphicon-chevron-right" style="font-size: 75px;" aria-hidden="true"></span>
       </a>
     </div>
   </div>

@@ -5,17 +5,21 @@ import { QuizQuestionImageComponent } from './quiz-question-image/quiz-question-
 import {RouterModule} from '@angular/router';
 import {QuizAppRoutes} from "./app.routes";
 import { QuizRoundImageComponent } from './quiz-round-image/quiz-round-image.component';
+import {FormsModule} from "@angular/forms";
+import { QuizRoundSolvedComponent } from './quiz-round-solved/quiz-round-solved.component';
 
 
 @NgModule({
   declarations: [
     QuizAppComponent,
     QuizQuestionImageComponent,
-    QuizRoundImageComponent
+    QuizRoundImageComponent,
+    QuizRoundSolvedComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(QuizAppRoutes)
+    RouterModule.forRoot(QuizAppRoutes),
+    FormsModule
   ],
   bootstrap: [QuizAppComponent]
 })
