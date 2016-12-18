@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <h1>Overzicht rondes</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let round of rounds">
+      <a [routerLink]="['/', round]">
+        <img class="img-circle" style="border: 1px black solid" [src]="getRoundAvatar(round)" width="140" height="140">
+      </a>
+      <h2>{{round}}</h2>
+      <p>{{getOmschrijving(round)}}</p>
+    </div>
+  </div>
+</div>

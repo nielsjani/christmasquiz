@@ -7,6 +7,7 @@ import {QuizAppRoutes} from "./app.routes";
 import { QuizRoundImageComponent } from './quiz-round-image/quiz-round-image.component';
 import {FormsModule} from "@angular/forms";
 import { QuizRoundSolvedComponent } from './quiz-round-solved/quiz-round-solved.component';
+import { QuizRoundOverviewComponent } from './quiz-round-overview/quiz-round-overview.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { QuizRoundSolvedComponent } from './quiz-round-solved/quiz-round-solved.
     QuizAppComponent,
     QuizQuestionImageComponent,
     QuizRoundImageComponent,
-    QuizRoundSolvedComponent
+    QuizRoundSolvedComponent,
+    QuizRoundOverviewComponent
   ],
   imports: [
     BrowserModule,

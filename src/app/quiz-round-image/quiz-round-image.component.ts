@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {RoundInfo} from "../shared/RoundInfo";
 
 @Component({
   selector: 'quiz-round-image',
@@ -8,12 +9,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class QuizRoundImageComponent implements OnInit {
 
   currentQuestion = 0;
-  // @Input()
-  questions = [
-    {name: "0", answer: "one", solved: false},
-    {name: "1", answer: "toe", solved: false},
-    {name: "2", answer: "trie", solved: false}
-  ];
+  questions;
   roundName;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {
@@ -25,7 +21,10 @@ export class QuizRoundImageComponent implements OnInit {
 
   private getRoundName() {
     this.activatedRoute.params.subscribe(
-      param => this.roundName = param['quizname']
+      param => {
+        this.roundName = param['quizname'];
+        this.questions = new RoundInfo().getImageRoundQuestions(this.roundName);
+      }
     );
   }
 

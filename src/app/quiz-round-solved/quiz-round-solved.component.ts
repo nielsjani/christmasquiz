@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {RoundInfo} from "../shared/RoundInfo";
 
 @Component({
   selector: 'trm-quiz-round-solved',
@@ -23,6 +24,10 @@ export class QuizRoundSolvedComponent implements OnInit {
 
   getRoundSolvedImage() {
     return `../../assets/${this.roundName}/winner.jpg`
+  }
+
+  getWinnerText() {
+    return new RoundInfo().getImageRoundWinnerText(this.roundName);
   }
 
 }
