@@ -8,7 +8,7 @@ import { QuizRoundImageComponent } from './quiz-round-image/quiz-round-image.com
 import {FormsModule} from "@angular/forms";
 import { QuizRoundSolvedComponent } from './quiz-round-solved/quiz-round-solved.component';
 import { QuizRoundOverviewComponent } from './quiz-round-overview/quiz-round-overview.component';
-
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -18,10 +18,13 @@ import { QuizRoundOverviewComponent } from './quiz-round-overview/quiz-round-ove
     QuizRoundSolvedComponent,
     QuizRoundOverviewComponent
   ],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(QuizAppRoutes),
-    FormsModule
+    FormsModule,
   ],
   bootstrap: [QuizAppComponent]
 })
