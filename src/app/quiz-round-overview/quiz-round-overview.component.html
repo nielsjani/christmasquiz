@@ -6,12 +6,34 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-4" *ngFor="let round of rounds">
-      <a [routerLink]="['/', round]">
+    <div class="col-lg-4">
+      <h2>Klassieke rondes</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let round of classicrounds">
+      <a [routerLink]="['/classic', round]">
         <img class="img-circle" style="border: 1px black solid" [src]="getRoundAvatar(round)" width="140" height="140">
       </a>
       <h2>{{round}}</h2>
-      <p>{{getOmschrijving(round)}}</p>
+      <p>{{getClassicRoundOmschrijving(round)}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>Galerij rondes</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let round of imagerounds">
+      <a [routerLink]="['/image', round]">
+        <img class="img-circle" style="border: 1px black solid" [src]="getRoundAvatar(round)" width="140" height="140">
+      </a>
+      <h2>{{round}}</h2>
+      <p>{{getImageRoundOmschrijving(round)}}</p>
     </div>
   </div>
 </div>

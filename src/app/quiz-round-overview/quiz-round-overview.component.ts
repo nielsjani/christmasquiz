@@ -6,16 +6,22 @@ import {RoundInfo} from "../shared/RoundInfo";
   templateUrl: './quiz-round-overview.component.html'
 })
 export class QuizRoundOverviewComponent implements OnInit {
-  private rounds;
+  private imagerounds;
+  private classicrounds;
 
   constructor() { }
 
   ngOnInit() {
-    this.rounds = new RoundInfo().getRoundNames();
+    this.imagerounds = new RoundInfo().getImageRoundNames();
+    this.classicrounds = new RoundInfo().getClassicRoundNames();
   }
 
-  getOmschrijving(rondeNaam) {
+  getImageRoundOmschrijving(rondeNaam) {
     return new RoundInfo().getImageRoundOmschrijving(rondeNaam);
+  }
+
+  getClassicRoundOmschrijving(rondeNaam) {
+    return new RoundInfo().getClassicRoundOmschrijving(rondeNaam);
   }
 
   getRoundAvatar(round) {
