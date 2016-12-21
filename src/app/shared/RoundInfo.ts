@@ -13,16 +13,26 @@ export class RoundInfo {
       winnerText: "Alles opgelost!? Wat een opMERKelijke verdienste!",
       omschrijving: "Vind de merken aan de hand van een cryptische afbeelding.",
       questions: [
-        {name: "one", answer: ["devos & lemmens","devos&lemmens","devos-lemmens", "devos lemmens"], solved: false},
-        {name: "two", answer: ["carlsberg","carl'sberg"], solved: false},
-        {name: "three", answer: ["ford"], solved: false},
-        {name: "four", answer: ["vans"], solved: false},
-        {name: "five", answer: ["studio brussel", "stubru"], solved: false},
-        {name: "six", answer: ["coca-cola", "coca cola"], solved: false},
-        {name: "seven", answer: ["häagen-dazs","haagen-dazs","haagen dazs", "hagen das", "haagen das", "haagen daz"], solved: false},
-        {name: "eight", answer: ["albert heijn", "albert-heijn", "albert hein"], solved: false},
-        {name: "nine", answer: ["thomas cook", "tomas cook"], solved: false},
-        {name: "ten", answer: ["de lijn"], solved: false}
+        {
+          name: "one",
+          answer: ["devos & lemmens", "devos&lemmens", "devos-lemmens", "devos lemmens"],
+          hint: "Aan tafel!",
+          solved: false
+        },
+        {name: "two", answer: ["carlsberg", "carl'sberg"], hint: "Probably not the best in the world", solved: false},
+        {name: "three", answer: ["ford"], hint: "Vroem!", solved: false},
+        {name: "four", answer: ["vans"], hint: "Engelse busjes", solved: false},
+        {name: "five", answer: ["studio brussel", "stubru"], hint: "Meer dan 1000 goede doelen", solved: false},
+        {name: "six", answer: ["coca-cola", "coca cola"], hint: "In het rood, in het grijs, in het zwart en in het groen", solved: false},
+        {
+          name: "seven",
+          answer: ["häagen-dazs", "haagen-dazs", "haagen dazs", "hagen das", "haagen das", "haagen daz"],
+          hint: "Niet Ben&Jerries",
+          solved: false
+        },
+        {name: "eight", answer: ["albert heijn", "albert-heijn", "albert hein"], hint: "Hechte vriend van Delhaize", solved: false},
+        {name: "nine", answer: ["thomas cook", "tomas cook"], hint: "Boven de wolken", solved: false},
+        {name: "ten", answer: ["de lijn"], hint: "Er is momenteel geen hint beschikbaar wegens stakend personeel", solved: false}
       ]
     });
 
@@ -30,16 +40,21 @@ export class RoundInfo {
       winnerText: "Gefeliciteerd! De naam van een filmfan zoals jij zou in de aftiteling moeten staan.",
       omschrijving: "Welke films zoeken we? Je enige leidraad zijn enkele raadselachtige prenten...",
       questions: [
-        {name: "one", answer:[ "das boot"], solved: false},
-        {name: "two", answer:[ "hector"], solved: false},
-        {name: "three", answer:[ "jaws"], solved: false},
-        {name: "four", answer:[ "mad max"], solved: false},
-        {name: "five", answer:[ "life of brian"], solved: false},
-        {name: "six", answer:[ "the silence of the lambs", "silence of the lambs"], solved: false},
-        {name: "seven", answer:[ "schindler's list", "schindlers list", "shindler's list", "shindlers list"], solved: false},
-        {name: "eight", answer:[ "wall-e", "wall e", "walle"], solved: false},
-        {name: "nine", answer:[ "up"], solved: false},
-        {name: "ten", answer:[ "the wolf of wall street", "wolf of wall street"], solved: false}
+        {name: "one", answer: ["das boot"], hint: "auf Deutsch", solved: false},
+        {name: "two", answer: ["hector"], hint: "Vlaamse film", solved: false},
+        {name: "three", answer: ["jaws"], hint: "Eentje van Spielberg", solved: false},
+        {name: "four", answer: ["mad max"], hint: "Werd al gespeeld door Mel Gibson en Tom Hardy", solved: false},
+        {name: "five", answer: ["life of brian"], hint: "Monty Python", solved: false},
+        {name: "six", answer: ["the silence of the lambs", "silence of the lambs"], hint: "Politie gaat ten rade bij kannibaal", solved: false},
+        {
+          name: "seven",
+          answer: ["schindler's list", "schindlers list", "shindler's list", "shindlers list"],
+          hint: "Nog eentje van Spielberg. Bijna volledig in zwart-wit.",
+          solved: false
+        },
+        {name: "eight", answer: ["wall-e", "wall e", "walle"], hint: "Populatie van de aarde: 0", solved: false},
+        {name: "nine", answer: ["up"], hint: "ballonnen", solved: false},
+        {name: "ten", answer: ["the wolf of wall street", "wolf of wall street"], hint: "Rijk worden met andermans geld", solved: false}
       ]
     });
   }
@@ -61,7 +76,7 @@ export class RoundInfo {
         {
           titel: "Februari",
           vraag: "Leonardo DiCaprio won voor het eerst in zijn leven een Oscar voor zijn hoofdrol in The Revenant. Weet je echter welke Valentijnsfilm zo maar even 5 Razzies (filmprijzen voor de slechtste films in een bepaalde categorie) naar huis mocht meenemen?",
-          answer: ["50 shades of grey", "50 shades of gray", "fifty shades of grey","fifty shades of gray"],
+          answer: ["50 shades of grey", "50 shades of gray", "fifty shades of grey", "fifty shades of gray"],
           solved: false
         },
 
@@ -147,7 +162,7 @@ export class RoundInfo {
   }
 
   getImageRoundWinnerText(roundName) {
-    if(this.imageRounds.has(roundName)){
+    if (this.imageRounds.has(roundName)) {
       return this.imageRounds.get(roundName).winnerText;
     } else {
       return this.classicRounds.get(roundName).winnerText;

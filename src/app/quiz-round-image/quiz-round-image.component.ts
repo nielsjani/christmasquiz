@@ -40,6 +40,10 @@ export class QuizRoundImageComponent implements OnInit {
     return this.questions[this.currentQuestion].answer;
   }
 
+  getCurrentQuestionHint() {
+    return this.questions[this.currentQuestion].hint;
+  }
+
   previousQuestion() {
     this.currentQuestion--;
   }

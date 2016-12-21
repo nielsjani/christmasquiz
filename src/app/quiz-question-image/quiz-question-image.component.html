@@ -16,6 +16,15 @@
   </div>
 </div>
 
+<div class="row" *ngIf="!isSolved">
+  <div class="col-xs-offset-3 col-xs-9 col-md-offset-3 col-md-9">
+        <button class="btn btn-primary btn-lg" type="button" (click)="showHint()">De grote ik-ben-dom-knop</button>
+  </div>
+  <div *ngIf="showhint" class="col-xs-offset-3 col-xs-9 col-md-offset-3 col-md-9">
+        <h2>{{hint}}</h2>
+  </div>
+</div>
+
 <div class="row" *ngIf="isSolved">
   <div class="col-xs-offset-3 col-xs-6 col-md-offset-3 col-md-6">
     <h3>{{answer[0]}}</h3>

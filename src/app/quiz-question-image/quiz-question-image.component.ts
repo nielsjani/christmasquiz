@@ -12,10 +12,13 @@ export class QuizQuestionImageComponent implements OnInit {
   solvedBefore;
   @Output()
   answeredCorrectly = new EventEmitter();
-  isSolved = false;
   @Input()
   answer;
+  @Input()
+  hint;
   resolution;
+  isSolved = false;
+  showhint = false;
 
   constructor() {
   }
@@ -27,6 +30,7 @@ export class QuizQuestionImageComponent implements OnInit {
   ngOnChanges(changes: {[propertyName: string]: SimpleChange}) {
     if (changes['questionImage']) {
       this.isSolved = this.solvedBefore;
+      this.showhint = false;
     }
   }
 
@@ -36,6 +40,10 @@ export class QuizQuestionImageComponent implements OnInit {
       this.answeredCorrectly.emit();
     }
     this.resolution = "";
+  }
+
+  showHint() {
+    this.showhint = true;
   }
 
 }
