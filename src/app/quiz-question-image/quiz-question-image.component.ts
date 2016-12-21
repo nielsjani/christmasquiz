@@ -31,7 +31,7 @@ export class QuizQuestionImageComponent implements OnInit {
   }
 
   validateAnswer() {
-    if (this.resolution && this.resolution.toLowerCase() === this.answer.toLowerCase()) {
+    if (this.resolution && this.answer.indexOf(this.resolution.toLowerCase()) !== -1) {
       this.isSolved = true;
       this.answeredCorrectly.emit();
     }

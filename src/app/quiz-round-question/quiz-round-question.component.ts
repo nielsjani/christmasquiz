@@ -33,7 +33,7 @@ export class QuizRoundQuestionComponent implements OnInit {
   }
 
   checkAnswer(ind) {
-    if (this.guesses[ind].toLowerCase() === this.vragen[ind].answer) {
+    if (this.guesses[ind] && this.vragen[ind].answer.indexOf(this.guesses[ind].toLowerCase()) !== -1) {
       this.vragen[ind].solved = true;
       if (this.allSolved()) {
         this.router.navigateByUrl("/" + this.roundName + "/solved")
