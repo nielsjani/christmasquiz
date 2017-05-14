@@ -1,10 +1,26 @@
-<div class="container">
+<div class="container" *ngIf="winners">
+  <div class="row">
+    <div class="col-lg-6">
+      <h2>Love Letter</h2>
+    </div>
+    <div class="col-lg-6">
+      <h2>Round won by</h2>
+      <h3 *ngFor="let winner of winners">
+        {{winner}}
+      </h3>
+      <h4>
+        <a (click)="refresh()">Again!</a>
+      </h4>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="!winners">
   <div class="row">
     <div class="col-lg-6">
       <h2>Love Letter</h2>
     </div>
   </div>
-
 
   <div class="row">
     <div class="col-lg-3">
@@ -92,10 +108,14 @@
   </div>
   <div class="row" *ngIf="menusToShow">
     <div *ngIf="menusToShow==='GUARD'" class="col-lg-5">
-      <div *ngIf="canBeTargeted(player1)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget" value="player1">Player 1<br></div>
-      <div *ngIf="canBeTargeted(player2)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget" value="player2">Player 2<br></div>
-      <div *ngIf="canBeTargeted(player3)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget" value="player3">Player 3<br></div>
-      <div *ngIf="canBeTargeted(player4)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget" value="player4">Player 4<br></div>
+      <div *ngIf="canBeTargeted(player1)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget"
+                                                 value="player1">Player 1<br></div>
+      <div *ngIf="canBeTargeted(player2)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget"
+                                                 value="player2">Player 2<br></div>
+      <div *ngIf="canBeTargeted(player3)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget"
+                                                 value="player3">Player 3<br></div>
+      <div *ngIf="canBeTargeted(player4)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget"
+                                                 value="player4">Player 4<br></div>
     </div>
     <div *ngIf="menusToShow==='GUARD'" class="col-lg-2">
       has a
@@ -115,10 +135,14 @@
       Look at card of player
     </div>
     <div *ngIf="menusToShow==='PRIEST' && !lookingAtCardAsPriest" class="col-lg-5">
-      <div *ngIf="canBeTargeted(player1)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget" value="player1">Player 1<br></div>
-      <div *ngIf="canBeTargeted(player2)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget" value="player2">Player 2<br></div>
-      <div *ngIf="canBeTargeted(player3)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget" value="player3">Player 3<br></div>
-      <div *ngIf="canBeTargeted(player4)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget" value="player4">Player 4<br></div>
+      <div *ngIf="canBeTargeted(player1)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget"
+                                                 value="player1">Player 1<br></div>
+      <div *ngIf="canBeTargeted(player2)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget"
+                                                 value="player2">Player 2<br></div>
+      <div *ngIf="canBeTargeted(player3)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget"
+                                                 value="player3">Player 3<br></div>
+      <div *ngIf="canBeTargeted(player4)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget"
+                                                 value="player4">Player 4<br></div>
     </div>
     <div *ngIf="menusToShow==='PRIEST' && !lookingAtCardAsPriest" class="col-lg-2">
       <button (click)="performPriestAction()">Look</button>
@@ -131,13 +155,55 @@
       Compare for highest hand card value with
     </div>
     <div *ngIf="menusToShow==='BARON'" class="col-lg-5">
-      <div *ngIf="canBeTargeted(player1)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget" value="player1">Player 1<br></div>
-      <div *ngIf="canBeTargeted(player2)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget" value="player2">Player 2<br></div>
-      <div *ngIf="canBeTargeted(player3)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget" value="player3">Player 3<br></div>
-      <div *ngIf="canBeTargeted(player4)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget" value="player4">Player 4<br></div>
+      <div *ngIf="canBeTargeted(player1)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget"
+                                                 value="player1">Player 1<br></div>
+      <div *ngIf="canBeTargeted(player2)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget"
+                                                 value="player2">Player 2<br></div>
+      <div *ngIf="canBeTargeted(player3)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget"
+                                                 value="player3">Player 3<br></div>
+      <div *ngIf="canBeTargeted(player4)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget"
+                                                 value="player4">Player 4<br></div>
     </div>
     <div *ngIf="menusToShow==='BARON'" class="col-lg-2">
       <button (click)="endBaronAction()">FIGHT</button>
+    </div>
+
+    <div *ngIf="menusToShow==='PRINCE'" class="col-lg-2">
+      Player that has to discard hand
+    </div>
+    <div *ngIf="menusToShow==='PRINCE'" class="col-lg-5">
+      <div *ngIf="canBeTargetedByPrince(player1)"><input type="radio" name="playerNumberPrince"
+                                                         [(ngModel)]="princeCardTarget" value="player1">Player 1<br>
+      </div>
+      <div *ngIf="canBeTargetedByPrince(player2)"><input type="radio" name="playerNumberPrince"
+                                                         [(ngModel)]="princeCardTarget" value="player2">Player 2<br>
+      </div>
+      <div *ngIf="canBeTargetedByPrince(player3)"><input type="radio" name="playerNumberPrince"
+                                                         [(ngModel)]="princeCardTarget" value="player3">Player 3<br>
+      </div>
+      <div *ngIf="canBeTargetedByPrince(player4)"><input type="radio" name="playerNumberPrince"
+                                                         [(ngModel)]="princeCardTarget" value="player4">Player 4<br>
+      </div>
+    </div>
+    <div *ngIf="menusToShow==='PRINCE'" class="col-lg-2">
+      <button (click)="endPrinceAction()">Discard</button>
+    </div>
+
+    <div *ngIf="menusToShow==='KING'" class="col-lg-2">
+      Swap hands with
+    </div>
+    <div *ngIf="menusToShow==='KING'" class="col-lg-5">
+      <div *ngIf="canBeTargeted(player1)"><input type="radio" name="playerNumberKing" [(ngModel)]="kingCardTarget"
+                                                 value="player1">Player 1<br></div>
+      <div *ngIf="canBeTargeted(player2)"><input type="radio" name="playerNumberKing" [(ngModel)]="kingCardTarget"
+                                                 value="player2">Player 2<br></div>
+      <div *ngIf="canBeTargeted(player3)"><input type="radio" name="playerNumberKing" [(ngModel)]="kingCardTarget"
+                                                 value="player3">Player 3<br></div>
+      <div *ngIf="canBeTargeted(player4)"><input type="radio" name="playerNumberKing" [(ngModel)]="kingCardTarget"
+                                                 value="player4">Player 4<br></div>
+    </div>
+    <div *ngIf="menusToShow==='KING'" class="col-lg-2">
+      <button (click)="endKingAction()">Discard</button>
     </div>
 
   </div>

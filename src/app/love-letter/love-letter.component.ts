@@ -10,35 +10,39 @@ export class LoveLetterComponent implements OnInit {
   deck: any[];
   burnCard: any;
   activePlayerIndex: number = 1;
-  player1: any = {active: true, alive: true, cards: [], playedCards: [], isProtectedByHandmaiden:false};
-  player2: any = {active: false, alive: true, cards: [], playedCards: [], isProtectedByHandmaiden:false};
-  player3: any = {active: false, alive: true, cards: [], playedCards: [], isProtectedByHandmaiden:false};
-  player4: any = {active: false, alive: true, cards: [], playedCards: [], isProtectedByHandmaiden:false};
+  player1: any = {name: "player1",active: true, alive: true, cards: [], playedCards: [], isProtectedByHandmaiden: false};
+  player2: any = {name: "player2",active: false, alive: true, cards: [], playedCards: [], isProtectedByHandmaiden: false};
+  player3: any = {name: "player3",active: false, alive: true, cards: [], playedCards: [], isProtectedByHandmaiden: false};
+  player4: any = {name: "player4",active: false, alive: true, cards: [], playedCards: [], isProtectedByHandmaiden: false};
   private remainingCardsSummary: any[];
   menusToShow: string;
   guardCardTarget: any;
   priestCardTarget: any;
-  lookingAtCardAsPriest: boolean= false;
+  lookingAtCardAsPriest: boolean = false;
   baronCardTarget: any;
+  princeCardTarget: any;
+  kingCardTarget: any;
+  winners: any[];
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     //16 cards
     this.cardList = [
-      {name: "GUARD", score: 1, isTargeting:true},
-      {name: "GUARD", score: 1, isTargeting:true},
-      {name: "GUARD", score: 1, isTargeting:true},
-      {name: "GUARD", score: 1, isTargeting:true},
-      {name: "GUARD", score: 1, isTargeting:true},
+      {name: "GUARD", score: 1, isTargeting: true},
+      {name: "GUARD", score: 1, isTargeting: true},
+      {name: "GUARD", score: 1, isTargeting: true},
+      {name: "GUARD", score: 1, isTargeting: true},
+      {name: "GUARD", score: 1, isTargeting: true},
 
-      {name: "PRIEST", score: 2, isTargeting:true}, {name: "PRIEST", score: 2, isTargeting:true},
-      {name: "BARON", score: 3, isTargeting:true}, {name: "BARON", score: 3, isTargeting:true},
-      {name: "HANDMAIDEN", score: 4, isTargeting:false}, {name: "HANDMAIDEN", score: 4, isTargeting:false},
-      {name: "PRINCE", score: 5, isTargeting:true}, {name: "PRINCE", score: 5, isTargeting:true},
-      {name: "KING", score: 6, isTargeting:true},
-      {name: "COUNTESS", score: 7, isTargeting:false},
-      {name: "PRINCESS", score: 8, isTargeting:false}
+      {name: "PRIEST", score: 2, isTargeting: true}, {name: "PRIEST", score: 2, isTargeting: true},
+      {name: "BARON", score: 3, isTargeting: true}, {name: "BARON", score: 3, isTargeting: true},
+      {name: "HANDMAIDEN", score: 4, isTargeting: false}, {name: "HANDMAIDEN", score: 4, isTargeting: false},
+      {name: "PRINCE", score: 5, isTargeting: true}, {name: "PRINCE", score: 5, isTargeting: true},
+      {name: "KING", score: 6, isTargeting: true},
+      {name: "COUNTESS", score: 7, isTargeting: false},
+      {name: "PRINCESS", score: 8, isTargeting: false}
     ];
 
     this.deck = this.shuffleArray(this.cardList);
@@ -72,8 +76,11 @@ export class LoveLetterComponent implements OnInit {
   }
 
   private dealCardToActivePlayer() {
-    //TODO: check if still cards in deck, otherwise end game by comparing cards in hand
-    this.giveTopCardTo(this["player" + this.activePlayerIndex]);
+    if (this.deck.length === 0) {
+      this.determineWinner();
+    } else {
+      this.giveTopCardTo(this["player" + this.activePlayerIndex]);
+    }
   }
 
   private dealCards() {
@@ -93,12 +100,16 @@ export class LoveLetterComponent implements OnInit {
   }
 
   getActivePlayer() {
-    return this["player"+this.activePlayerIndex];
+    return this["player" + this.activePlayerIndex];
   }
 
   getCardHoverText(player, card) {
     if (this.isActivePlayer(player) || (this.lookingAtCardAsPriest && this[this.priestCardTarget] === player)) {
-      return card.name + " (" + card.score + ")";
+      let regularCardText = card.name + " (" + card.score + ")";
+      if (card.name === "COUNTESS" && (this.hasCardInHandWithName("PRINCE", player) || this.hasCardInHandWithName("KING", player))) {
+        regularCardText += " you MUST play this card";
+      }
+      return regularCardText;
     }
     return "Cheater (-1)";
   }
@@ -123,16 +134,21 @@ export class LoveLetterComponent implements OnInit {
   }
 
   playCard(player, card) {
-    this.addCardToPlayedCards(player, card);
-    this.createRemainingCardsSummary();
-    if(card.name === "HANDMAIDEN"){
-      this.performHandmaidenAction(player);
-    } else {
-      if(card.isTargeting && this.noPlayerTargetAvailable()){
+    if (this.isActivePlayer(player)) {
+      this.addCardToPlayedCards(player, card);
+      if (card.name === "COUNTESS") {
         this.nextPlayer();
-      } else {
-        this.menusToShow = card.name;
       }
+      if (card.name === "HANDMAIDEN") {
+        this.performHandmaidenAction(player);
+      } else {
+        if (card.isTargeting && this.noPlayerTargetAvailable()) {
+          this.nextPlayer();
+        } else {
+          this.menusToShow = card.name;
+        }
+      }
+      this.createRemainingCardsSummary();
     }
   }
 
@@ -147,6 +163,10 @@ export class LoveLetterComponent implements OnInit {
       player.playedCards = [];
     }
     player.playedCards.push(...player.cards.splice(index, 1));
+    if (player.playedCards[player.playedCards.length - 1].name === "PRINCESS") {
+      player.alive = false;
+      this.determineWinnerIfNeeded();
+    }
   }
 
   private moveActivePlayerMarker() {
@@ -155,7 +175,7 @@ export class LoveLetterComponent implements OnInit {
       this.activePlayerIndex = 1;
     } else {
       this.activePlayerIndex++;
-      if(!this["player" + this.activePlayerIndex].alive){
+      if (!this["player" + this.activePlayerIndex].alive) {
         this.moveActivePlayerMarker();
       }
     }
@@ -163,10 +183,11 @@ export class LoveLetterComponent implements OnInit {
   }
 
   performGuardAction(cardName) {
-    if(this.guardCardTarget){
-      if(this[this.guardCardTarget].cards[0].name === cardName){
+    if (this.guardCardTarget) {
+      if (this[this.guardCardTarget].cards[0].name === cardName) {
         this.addCardToPlayedCards(this[this.guardCardTarget], this[this.guardCardTarget].cards[0]);
         this[this.guardCardTarget].alive = false;
+        this.determineWinnerIfNeeded();
       }
       this.guardCardTarget = undefined;
       this.nextPlayer();
@@ -180,15 +201,16 @@ export class LoveLetterComponent implements OnInit {
     this.undoHandmaidenProtection();
   }
 
-  isAlive(player){
+  isAlive(player) {
     return player.alive ? "" : "line-through";
   }
 
-  //TODO: debug method, remove after finishing
+  //TODO: debug method, uncomment only locally
   getFirstCardName(player) {
-    if(player.cards.length !== 0){
-      return player.cards[0].name;
-    }
+    return "";
+    // if (player.cards.length !== 0) {
+    //   return player.cards[0].name;
+    // }
   }
 
   performPriestAction() {
@@ -202,13 +224,14 @@ export class LoveLetterComponent implements OnInit {
   }
 
   endBaronAction() {
-    if(this.getActivePlayer().cards[0].score > this[this.baronCardTarget].cards[0].score){
+    if (this.getActivePlayer().cards[0].score > this[this.baronCardTarget].cards[0].score) {
       this.addCardToPlayedCards(this[this.baronCardTarget], this[this.baronCardTarget].cards[0]);
       this[this.baronCardTarget].alive = false;
-    } else if(this.getActivePlayer().cards[0].score < this[this.baronCardTarget].cards[0].score) {
+    } else if (this.getActivePlayer().cards[0].score < this[this.baronCardTarget].cards[0].score) {
       this.addCardToPlayedCards(this.getActivePlayer(), this.getActivePlayer().cards[0]);
       this.getActivePlayer().alive = false;
     }
+    this.determineWinnerIfNeeded();
     this.baronCardTarget = undefined;
     this.nextPlayer();
   }
@@ -225,7 +248,63 @@ export class LoveLetterComponent implements OnInit {
     return !this.isActivePlayer(player) && player.alive === true && player.isProtectedByHandmaiden === false;
   }
 
+  canBeTargetedByPrince(player) {
+    return player.alive === true && player.isProtectedByHandmaiden === false;
+  }
+
   private noPlayerTargetAvailable() {
     return !this.canBeTargeted(this.player1) && !this.canBeTargeted(this.player2) && !this.canBeTargeted(this.player3) && !this.canBeTargeted(this.player4);
+  }
+
+  endPrinceAction() {
+    this.addCardToPlayedCards(this[this.princeCardTarget], this[this.princeCardTarget].cards[0]);
+    if (this[this.princeCardTarget].alive) {
+      this.givePlayerNewCardAfterPrinceDiscard();
+    }
+    this.princeCardTarget = undefined;
+    this.nextPlayer();
+  }
+
+  private givePlayerNewCardAfterPrinceDiscard() {
+    if (this.deck.length !== 0) {
+      this.giveTopCardTo(this[this.princeCardTarget]);
+    } else {
+      this.giveBurnCardTo(this[this.princeCardTarget]);
+    }
+  }
+
+  private giveBurnCardTo(player: any) {
+    player.cards.push(this.burnCard);
+    this.burnCard = undefined;
+  }
+
+  endKingAction() {
+    let swapVar = this.getActivePlayer().cards.slice();
+    this.getActivePlayer().cards = this[this.kingCardTarget].cards.slice();
+    this[this.kingCardTarget].cards = swapVar;
+    this.nextPlayer();
+  }
+
+  private hasCardInHandWithName(cardName: string, player: any) {
+    return player.cards.map(card => card.name).some(name => name === cardName);
+  }
+
+  determineWinner() {
+    let players = [this.player1, this.player2, this.player3, this.player4];
+    let livingPlayersOrderedByCardPowerDescending = players.filter(player => player.alive).sort((p1, p2) => p1.cards[0].score < p2.cards[0].score ? 1 : -1);
+    let highestCardValue = livingPlayersOrderedByCardPowerDescending[0].cards[0].score;
+    this.winners = livingPlayersOrderedByCardPowerDescending.filter(player => player.cards[0].score === highestCardValue)
+      .map(player => `${player.name} with ${player.cards[0].name}`);
+  }
+
+  private determineWinnerIfNeeded() {
+    let players = [this.player1, this.player2, this.player3, this.player4];
+    if(players.filter(player => player.alive).length === 1) {
+      this.determineWinner();
+    }
+  }
+
+  refresh() {
+    location.reload();
   }
 }
