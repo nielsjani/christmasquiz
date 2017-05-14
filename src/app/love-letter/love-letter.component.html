@@ -1,0 +1,144 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <h2>Love Letter</h2>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-3">
+      <h3 [style.text-decoration]="isAlive(player1)">Player 1 {{getFirstCardName(player1)}}</h3>
+      <h4 *ngIf="isActivePlayer(player1)">Active player</h4>
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let card of player1.cards;let ind=index">
+          <button title="{{getCardHoverText(player1,card)}}" (click)="playCard(player1, card)">card {{ind+1}}</button>
+        </div>
+      </div>
+      <div class="row">
+        <h5>Played cards</h5>
+      </div>
+      <div class="row" *ngFor="let playedCard of player1.playedCards">
+        {{playedCard.name}}({{playedCard.score}})
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <h3 [style.text-decoration]="isAlive(player2)">Player 2 {{getFirstCardName(player2)}}</h3>
+      <h4 *ngIf="isActivePlayer(player2)">Active player</h4>
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let card of player2.cards;let ind=index">
+          <button title="{{getCardHoverText(player2,card)}}" (click)="playCard(player2,card)">card {{ind+1}}</button>
+        </div>
+      </div>
+      <div class="row">
+        <h5>Played cards</h5>
+      </div>
+      <div class="row" *ngFor="let playedCard of player2.playedCards">
+        {{playedCard.name}}({{playedCard.score}})
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <h3 [style.text-decoration]="isAlive(player3)">Player 3 {{getFirstCardName(player3)}}</h3>
+      <h4 *ngIf="isActivePlayer(player3)">Active player</h4>
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let card of player3.cards;let ind=index">
+          <button title="{{getCardHoverText(player3,card)}}" (click)="playCard(player3,card)">card {{ind+1}}</button>
+        </div>
+      </div>
+      <div class="row">
+        <h5>Played cards</h5>
+      </div>
+      <div class="row" *ngFor="let playedCard of player3.playedCards">
+        {{playedCard.name}}({{playedCard.score}})
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <h3 [style.text-decoration]="isAlive(player4)">Player 4 {{getFirstCardName(player4)}}</h3>
+      <h4 *ngIf="isActivePlayer(player4)">Active player</h4>
+      <div class="row">
+        <div class="col-lg-6" *ngFor="let card of player4.cards;let ind=index">
+          <button title="{{getCardHoverText(player4,card)}}" (click)="playCard(player4,card)">card {{ind+1}}</button>
+        </div>
+      </div>
+      <div class="row">
+        <h5>Played cards</h5>
+      </div>
+      <div class="row" *ngFor="let playedCard of player4.playedCards">
+        {{playedCard.name}}({{playedCard.score}})
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <h3>Burned card</h3>
+      <h4>???</h4>
+    </div>
+    <div class="col-lg-3">
+      <h3>Deck</h3>
+      <h4>Number of cards remaining in deck: {{deck.length}}</h4>
+      <h4>Unplayed cards:</h4>
+      <h5 *ngFor="let summary of remainingCardsSummary">
+        {{summary.name}}: {{summary.amount}} left
+      </h5>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="menusToShow">
+    <h5>Played card actions</h5>
+  </div>
+  <div class="row" *ngIf="menusToShow">
+    <div *ngIf="menusToShow==='GUARD'" class="col-lg-5">
+      <div *ngIf="canBeTargeted(player1)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget" value="player1">Player 1<br></div>
+      <div *ngIf="canBeTargeted(player2)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget" value="player2">Player 2<br></div>
+      <div *ngIf="canBeTargeted(player3)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget" value="player3">Player 3<br></div>
+      <div *ngIf="canBeTargeted(player4)"><input type="radio" name="playerNumberGuard" [(ngModel)]="guardCardTarget" value="player4">Player 4<br></div>
+    </div>
+    <div *ngIf="menusToShow==='GUARD'" class="col-lg-2">
+      has a
+    </div>
+    <div *ngIf="menusToShow==='GUARD'" class="col-lg-5">
+      <button (click)="performGuardAction('PRIEST')">Priest</button>
+      <button (click)="performGuardAction('BARON')">Baron</button>
+      <button (click)="performGuardAction('HANDMAIDEN')">Handmaiden</button>
+      <button (click)="performGuardAction('PRINCE')">Prince</button>
+      <button (click)="performGuardAction('KING')">King</button>
+      <button (click)="performGuardAction('COUNTESS')">Countess</button>
+      <button (click)="performGuardAction('PRINCESS')">Princess</button>
+    </div>
+
+
+    <div *ngIf="menusToShow==='PRIEST'" class="col-lg-2">
+      Look at card of player
+    </div>
+    <div *ngIf="menusToShow==='PRIEST' && !lookingAtCardAsPriest" class="col-lg-5">
+      <div *ngIf="canBeTargeted(player1)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget" value="player1">Player 1<br></div>
+      <div *ngIf="canBeTargeted(player2)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget" value="player2">Player 2<br></div>
+      <div *ngIf="canBeTargeted(player3)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget" value="player3">Player 3<br></div>
+      <div *ngIf="canBeTargeted(player4)"><input type="radio" name="playerNumberPriest" [(ngModel)]="priestCardTarget" value="player4">Player 4<br></div>
+    </div>
+    <div *ngIf="menusToShow==='PRIEST' && !lookingAtCardAsPriest" class="col-lg-2">
+      <button (click)="performPriestAction()">Look</button>
+    </div>
+    <div *ngIf="menusToShow==='PRIEST' && lookingAtCardAsPriest" class="col-lg-2">
+      <button (click)="endPriestAction()">Okay, I've seen it</button>
+    </div>
+
+    <div *ngIf="menusToShow==='BARON'" class="col-lg-2">
+      Compare for highest hand card value with
+    </div>
+    <div *ngIf="menusToShow==='BARON'" class="col-lg-5">
+      <div *ngIf="canBeTargeted(player1)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget" value="player1">Player 1<br></div>
+      <div *ngIf="canBeTargeted(player2)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget" value="player2">Player 2<br></div>
+      <div *ngIf="canBeTargeted(player3)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget" value="player3">Player 3<br></div>
+      <div *ngIf="canBeTargeted(player4)"><input type="radio" name="playerNumberBaron" [(ngModel)]="baronCardTarget" value="player4">Player 4<br></div>
+    </div>
+    <div *ngIf="menusToShow==='BARON'" class="col-lg-2">
+      <button (click)="endBaronAction()">FIGHT</button>
+    </div>
+
+  </div>
+</div>

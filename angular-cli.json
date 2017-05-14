@@ -15,7 +15,6 @@
       "prefix": "trm",
       "mobile": false,
       "styles": [
-        "../node_modules/materialize-css/dist/css/materialize.css",
         "../src/bootstrap/css/bootstrap.css",
         "../src/bootstrap/css/bootstrap-theme.css"
       ],
