@@ -2,7 +2,7 @@
   <div class="list-group-item" *ngFor="let vraag of vragen; let ind = index;" [style.background-color]="backgroundColor(ind)" [style.color]="textColor(ind)">
     <h4 class="list-group-item-heading">{{vraag.titel}}</h4>
     <p class="list-group-item-text">{{vraag.vraag}}</p>
-    <input *ngIf="vragen[ind].solved === false" type="text" class="form-control" placeholder="antwoord" [(ngModel)]="guesses[ind]" style="color:white">
+    <input *ngIf="vragen[ind].solved === false" type="text" class="form-control" placeholder="antwoord" [(ngModel)]="guesses[ind]">
     <button *ngIf="vragen[ind].solved === false" class="btn btn-default" type="button" (click)="checkAnswer(ind)">Antwoord</button>
     <h3 *ngIf="vragen[ind].solved === true">{{vraag.answer[0]}}</h3>
   </div>
