@@ -1,0 +1,27 @@
+<quiz-round-image *ngIf="questions"
+                  [providedQuestions]="questions"
+                  (questionSolved)="handleQuestionSolved($event)">
+</quiz-round-image>
+
+<td>
+  <div>
+    <table style="table-layout: fixed;width:125%">
+      <tbody>
+      <tr *ngFor="let question of questions">
+        <td style="background:black" *ngFor="let blackBefore of getBlacksBefore(question)" class="">
+          &nbsp;
+        </td>
+        <td *ngFor="let white of getWhites(question); let ind=index;">
+          <input style="text-transform: uppercase"
+                 size="1"
+                 disabled value="{{getValue(question, ind)}}"
+                 [ngStyle]="{'background-color': getWhiteColor(white)}">
+        </td>
+        <td style="background:black" *ngFor="let blackAfter of getBlacksAfter(question)">
+          &nbsp;
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</td>

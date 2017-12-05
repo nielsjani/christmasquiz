@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {RoundInfo} from "../shared/RoundInfo";
 
@@ -7,6 +7,10 @@ import {RoundInfo} from "../shared/RoundInfo";
   templateUrl: './quiz-round-image.component.html'
 })
 export class QuizRoundImageComponent implements OnInit {
+  @Input()
+  providedQuestions;
+  @Output()
+  questionSolved = new EventEmitter();
 
   currentQuestion = 0;
   questions;
@@ -23,9 +27,17 @@ export class QuizRoundImageComponent implements OnInit {
     this.activatedRoute.params.subscribe(
       param => {
         this.roundName = param['quizname'];
-        this.questions = new RoundInfo().getImageRoundQuestions(this.roundName);
+        this.setQuestions();
       }
     );
+  }
+
+  private setQuestions() {
+    if (this.providedQuestions) {
+      this.questions = this.providedQuestions;
+    } else {
+      this.questions = new RoundInfo().getImageRoundQuestions(this.roundName);
+    }
   }
 
   getCurrentImageUrl() {
@@ -58,7 +70,8 @@ export class QuizRoundImageComponent implements OnInit {
 
   currentQuestionSolved() {
     this.questions[this.currentQuestion].solved = true;
-    if(this.allQuestionsSolved()){
+    this.questionSolved.emit(this.currentQuestion);
+    if (this.allQuestionsSolved()) {
       this.router.navigateByUrl("/" + this.roundName + "/solved")
     }
   }

@@ -11,6 +11,7 @@ import { QuizRoundOverviewComponent } from './quiz-round-overview/quiz-round-ove
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { QuizRoundQuestionComponent } from './quiz-round-question/quiz-round-question.component';
 import { LoveLetterComponent } from './love-letter/love-letter.component';
+import {QuizRoundCrosswordComponent} from "./quiz-round-crossword/quiz-round-crossword.component";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoveLetterComponent } from './love-letter/love-letter.component';
     QuizRoundSolvedComponent,
     QuizRoundOverviewComponent,
     QuizRoundQuestionComponent,
+    QuizRoundCrosswordComponent,
     LoveLetterComponent
   ],
   providers: [

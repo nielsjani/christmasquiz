@@ -1,10 +1,12 @@
 export class RoundInfo {
   private imageRounds = new Map();
   private classicRounds = new Map();
+  private crosswordRounds = new Map();
 
   constructor() {
     this.initializeImageRounds();
     this.initializeClassicRounds();
+    this.initializeCrosswordRounds();
   }
 
   private initializeImageRounds() {
@@ -253,20 +255,35 @@ export class RoundInfo {
           vraag: "Wie haalde Grammy's binnen voor 'Record of the Year', 'Album of the Year', 'Song of the Year', 'Best Pop Solo' en 'Best Pop Vocal album'?",
           answer: ["adele"],
           solved: false
-        },
+        }
+      ]
+    });
+  }
 
-        // {
-        //   titel: "December",
-        //   vraag: "Koning Bhumibol van Thailand kwam dit jaar te gaan. Hoe lang gaat het land om zijn heengaan rouwen?",
-        //   answer: ["1 jaar", "een jaar", "één jaar", "twaalf maanden", "twaalf maand", "12 maand", "twaalf maanden"],
-        //   solved: false
-        // }
+  private initializeCrosswordRounds() {
+    this.crosswordRounds.set("merken-crossword", {
+      winnerText: "Hopelijk blijven jouw kleren na de fondue ook onbevlekt",
+      omschrijving: "Een bisronde merken raden. Nu met 100% extra kruiswoordraadsels!",
+      questions: [
+        {name: "one", verticalWordLetterIndex: 1, answer: ["dove"], hint: "Een diersoort in het Engels", solved: false},
+        {name: "two", verticalWordLetterIndex: 5, answer: ["mustang"], hint: "Een automerk die je in België quasi nooit ziet rijden. Ook een diersoort.", solved: false},
+        {name: "three", verticalWordLetterIndex: 6, answer: ["ravensburger"], hint: "Maken speelgoed en puzzels", solved: false},
+        {name: "four", verticalWordLetterIndex: 1, answer: ["becel"], hint: "Niet te dik smeren, dat is ongezond!", solved: false},
+        {name: "five", verticalWordLetterIndex: 8, answer: ["harleydavidson", "harley davidson", "harley-davidson"], hint: "Met twee wielen ben je sneller de file door", solved: false},
+        {name: "six", verticalWordLetterIndex: 1, answer: ["aldi"], hint: "De bijnaam van die rechtse was Lady...", solved: false},
+        {name: "seven", verticalWordLetterIndex: 3, answer: ["drpepper", "dr pepper", "dr. pepper", "dokter pepper", "doctor pepper"], hint: "Artsen raden het drinken van dit merk af", solved: false},
+        {name: "eight", verticalWordLetterIndex: 5, answer: ["hellokitty", "hello kitty"], hint: "Meisjes hebben er waarschijnlijk een schrift, pen, inpakpapier en dekbedovertrek van", solved: false},
+        {name: "nine", verticalWordLetterIndex: 7, answer: ["kruidvat"], hint: "Amerikanen zouden het een 'Drug store' noemen. Verrast? Dat kan misschien in je voordeel spelen!", solved: false},
       ]
     });
   }
 
   getImageRoundQuestions(roundName) {
     return this.imageRounds.get(roundName).questions;
+  }
+
+  getCrosswordRoundQuestions(roundName) {
+    return this.crosswordRounds.get(roundName).questions;
   }
 
   getClassicRoundQuestions(roundName) {
@@ -276,13 +293,19 @@ export class RoundInfo {
   getImageRoundWinnerText(roundName) {
     if (this.imageRounds.has(roundName)) {
       return this.imageRounds.get(roundName).winnerText;
-    } else {
+    } else if(this.classicRounds.has(roundName)) {
       return this.classicRounds.get(roundName).winnerText;
+    } else {
+      return this.crosswordRounds.get(roundName).winnerText;
     }
   }
 
   getImageRoundOmschrijving(roundName) {
     return this.imageRounds.get(roundName).omschrijving;
+  }
+
+  getCrosswordRoundOmschrijving(roundName) {
+    return this.crosswordRounds.get(roundName).omschrijving;
   }
 
   getImageRoundNames() {
@@ -293,8 +316,11 @@ export class RoundInfo {
     return Array.from(this.classicRounds.keys());
   }
 
+  getCrosswordRoundNames() {
+    return Array.from(this.crosswordRounds.keys());
+  }
+
   getClassicRoundOmschrijving(rondeNaam) {
     return this.classicRounds.get(rondeNaam).omschrijving;
   }
-
 }

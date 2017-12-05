@@ -36,4 +36,21 @@
       <p>{{getImageRoundOmschrijving(round)}}</p>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>Kruiswoordraadsel rondes</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let round of crosswordrounds">
+      <a [routerLink]="['/image-crossword', round]">
+        <img class="img-circle" style="border: 1px black solid" [src]="getRoundAvatar(round)" width="140" height="140">
+      </a>
+      <h2>{{round}}</h2>
+      <p>{{getCrosswordRoundOmschrijving(round)}}</p>
+    </div>
+  </div>
+
 </div>
