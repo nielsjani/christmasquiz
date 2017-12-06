@@ -86,7 +86,7 @@ export class RoundInfo {
 
   private initializeClassicRounds() {
 
-    this.classicRounds.set("jaarretrospectief", {
+    this.classicRounds.set("jaarretrospectief-2016", {
       winnerText: "Ben jij even klaar voor het volgend jaar als deze poes?",
       omschrijving: "Weet jij nog wat er het afgelopen jaar allemaal is gebeurd? Bewijs het in deze ronde!",
       questions: [
@@ -254,6 +254,96 @@ export class RoundInfo {
           titel: "2017",
           vraag: "Wie haalde Grammy's binnen voor 'Record of the Year', 'Album of the Year', 'Song of the Year', 'Best Pop Solo' en 'Best Pop Vocal album'?",
           answer: ["adele"],
+          solved: false
+        }
+      ]
+    });
+
+    this.classicRounds.set("jaarretrospectief-2017", {
+      winnerText: "Als je je even hard smijt als deze hond, ben je volledig klaar voor 2018",
+      omschrijving: "Twaalf vragen over het jaar 2017. Heb jij de voorbije 31,536,000 seconden goed opgelet",
+      questions: [
+        {
+          titel: "Januari",
+          vraag: "Trump legt de eed af als president van de Verenigde Staten van Amerika. De hoeveelste president is hij als je weet dat Eisenhower de 34ste president was en dat die regeerde tussen 1953 en 1961?",
+          answer: ["45ste", "45"],
+          solved: false
+        },
+
+        {
+          titel: "Februari",
+          vraag: "Belgische astronomen ontdekken een ster met bewoonbare planeten op 39 lichtjaren van de aarde. Hij noemen ze deze ster? De onderzoekers zijn fan van een biersoort gebrouwen door moniken.",
+          answer: ["trappist-1", "trappist", "trapist"],
+          solved: false
+        },
+
+        {
+          titel: "Maart",
+          vraag: "Hoe heet de Amerikaanse gitaarvirtuoos die op 90-jarige leeftijd het leven liet? Eén van zijn bekendste nummers is 'Johnny B. Goode'.",
+          answer: ["chuck berry", "berry", "berrie"],
+          solved: false
+        },
+
+        {
+          titel: "April",
+          vraag: "Welke Disneyfilm werd verfilmd met Emma Watson in de hoofdrol?",
+          answer: ["beauty and the beast", "belle en het beest"],
+          solved: false
+        },
+
+        {
+          titel: "Mei",
+          vraag: "Salvador Sobral zingt Portugal naar de Eurovisie Songfestival overwinning met het nummer 'Amor pelos dois'. De hoeveelste overwinning was dit voor Portugal?",
+          answer: ["eerste", "1"],
+          solved: false
+        },
+
+        {
+          titel: "Juni",
+          vraag: "Ariana Grande houdt een concert in Manchester ter nagedachtenis van de slachtoffers van de bom die tijdens haar vorige concert in de Engelse stad afging. Het nummer 'Don't look back in anger' werd het lijflied van het event. Maar wie bedacht dat nummer? Tip: je vindt ze in de woestijn.",
+          answer: ["oasis", "oase"],
+          solved: false
+        },
+
+        {
+          titel: "Juli",
+          vraag: "Chris Froome wint voor de vierde keer de Tour de France. Wie was de laatste Belgische winnaar? Tip: Tijdens die zomer liepen de Olympische Spelen in Montréal, Canada.",
+          answer: ["lucien van impe", "van impe"],
+          solved: false
+        },
+
+        {
+          titel: "Augustus",
+          vraag: "Prins Philip gaat op pensioen na meer dan 22.000 publieke optredens. Wie is de echtgenote van deze philip?",
+          answer: ["queen elisabeth II", "queen elisabeth", "elisabeth"],
+          solved: false
+        },
+
+        {
+          titel: "September",
+          vraag: "Eén van de bekendste uitgevers ter wereld sterft op 91-jarige leeftijd in zijn Mansion genoemd naar zijn bekendste blad. Hij laat 4 kinderen en een 31-jarige vrouw achter. Over wie hebben we het?",
+          answer: ["hugh hefner", "hefner"],
+          solved: false
+        },
+
+        {
+          titel: "Oktober",
+          vraag: "Hein Vanhaezebrouck wordt coach van Anderlecht. Welke Zwitser moest opstappen om plaats te maken voor Hein? Zijn naam is een anagram voor 'Weer in leer'",
+          answer: ["rene weiler", "weiler"],
+          solved: false
+        },
+
+        {
+          titel: "November",
+          vraag: "De afgezette minister-president van Catalonië stelt in Brugge zijn kiescampagne voor. Hoe heet die man ook alweer?",
+          answer: ["puigdemont"],
+          solved: false
+        },
+
+        {
+          titel: "December",
+          vraag: "1 eenheid van deze elektronisch munt die in 2009 het levenslicht zag is op 3 december meer dan 11.000 dollar waard. Wat is de naam van deze munt?",
+          answer: ["bitcoin", "bit coin"],
           solved: false
         }
       ]
