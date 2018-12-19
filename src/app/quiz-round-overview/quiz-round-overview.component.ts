@@ -31,7 +31,7 @@ export class QuizRoundOverviewComponent implements OnInit {
   }
 
   getRoundAvatar(round) {
-    return `../../assets/${round}/avatar.jpg`;
+    return `assets/${round}/avatar.jpg`;
   }
 
 }
