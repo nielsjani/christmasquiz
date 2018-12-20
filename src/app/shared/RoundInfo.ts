@@ -365,6 +365,97 @@ export class RoundInfo {
         }
       ]
     });
+
+    this.classicRounds.set("jaarretrospectief-2018", {
+      winnerText: "Dit varken zal 2019 waarschijnlijk niet halen, maar iemand die zo veel weet als jij haalt zonder problemen het volgende decennium",
+      omschrijving: "2018 ligt bijna achter ons. Hoe memorabel waren de gebeurtenissen van dit jaar voor jou?",
+      questions: [
+        {
+          titel: "Januari",
+          vraag: "Op 10 januari laat comédienne Lies Lefever op 37-jarige leeftijd het leven. Drie dagen eerder verloor de wereld ook al een andere zangeres. Welke Franse France zoeken we? (achternaam)",
+          answer: ["Gall", "gal"],
+          solved: false
+        },
+
+        {
+          titel: "Februari",
+          vraag: "SpaceX, een bedrijf die commerciële ruimtereizen poogt te organiseren, slaagt er in om zijn eerste raket, de 'Falcon Heavy', te lanceren. Mensen aan boord zijn er niet, wel een Tesla Roadster. Deze elektrische wagen wordt achtergelaten in de ruimte en speelt daar sindsdien nonstop 'Life on Mars' van David Bowie. Wat is de achternaam van de baas van SpaceX en Tesla. Hij ontwikkelde ook al PayPal, vlammenwerpers en leidt The Boring Company. ",
+          answer: ["Elon Musk", "Musk"],
+          solved: false
+        },
+
+        {
+          titel: "Maart",
+          vraag: "Een vrouw in Arizona sterft nadat ze wordt aangereden door een Uber taxi. Wat was er zo speciaal aan deze wagen waardoor dit ongeval het eerste van zijn soort werd?",
+          answer: ["De wagen was zelfsturend", "zelfsturend", "geen bestuurder", "zelfrijdend"],
+          solved: false
+        },
+
+        {
+          titel: "April",
+          vraag: "Na 35 jaar wordt de ban op films opgeheven in Saoedi-Arabië. Welke film werd de eerste die getoond werd na deze ban? Hij is ondertussen genomineerd voor 3 Oscars: beste film, beste soundtrack en beste song. Enkele hoofdrollen zijn weggelegd voor Chadwick Boseman als koning T'Challa, Michael B. Jordan als Eric Killmonger en Lupita Nyong'o als Nakia.",
+          answer: ["Black Panther"],
+          solved: false
+        },
+
+        {
+          titel: "Mei",
+          vraag: "De best bezochte film van dit jaar haalt maar liefst 2 miljard dollar binnen voor Walt Disney en wordt daarmee de vierde best verdienende film ooit. Met zijn geschatte budget dat tussen de 300 en 400 miljoen dollar ligt, is hij echter ook één van de duurste films ooit gemaakt. Welke film zoeken we?",
+          answer: ["Avengers: Infinity War", "Avengers 3", "Infinity War"],
+          solved: false
+        },
+
+        {
+          titel: "Juni",
+          vraag: "De wereldbeker voetbal vind plaats in Rusland. Frankrijk gaat met de trofee naar huis en België wordt derde. Welk land kreeg de zilveren plak?",
+          answer: ["Kroatië", "Kroatie"],
+          solved: false
+        },
+
+        {
+          titel: "Juli",
+          vraag: "De Tham Luang Nang Non grot komt uitgebreid in het nieuws. Twaalf jongeren en hun begeleider zitten er namelijk 17 dagen lang vast nadat de grot volloopt met water. Welke hobby delen deze mannen?",
+          answer: ["voetbal"],
+          solved: false
+        },
+
+        {
+          titel: "Augustus",
+          vraag: "Tientallen mensen sterven nadat een brug in Italië instort. In welke stad in het noordwesten van het land met meer dan een half miljoen inwoners bevond deze brug zich?",
+          answer: ["Genua"],
+          solved: false
+        },
+
+        {
+          titel: "September",
+          vraag: "Trump was niet welkom, maar onder meer Obama en George W. Bush waren wel aanwezig op de begrafenis van deze Republikeinse senator en krijgsgevangene uit de Vietnam oorlog. Wat is de achternaam van de man die ooit nog met Obama streed om de presidentstitel?",
+          answer: ["John McCain", "McCain"],
+          solved: false
+        },
+
+        {
+          titel: "Oktober",
+          vraag: "Gemeenteverkiezingen in België. In welke gemeente boekte Guy D'Haeseleer een monsteroverwinning met zijn extreemrechtse partij?",
+          answer: ["Ninove", "Ninnove"],
+          solved: false
+        },
+
+        {
+          titel: "November",
+          vraag: "Als gevolg van de verkiezingen trok de toenmalige minister van Defensie terug naar Hasselt om daar burgemeester te worden. Hij werd opgevolgd door partijgenoot Sander Loones die na minder dan een maand zijn post weer mocht afgeven aan Didier Reynders. Wie is de huidige burgemeester van Hasselt? (achternaam)",
+          answer: ["Vandeput", "van de put"],
+          solved: false
+        },
+
+        {
+          titel: "December",
+          vraag: "Wat is de Franse naam van de protestbeweging die onder andere Parijs en Wallonië bezette uit onvrede omtrent hoge brandstofprijzen en lage inkomens?",
+          answer: ["Gilets jaunes", "Gilet jaune"],
+          solved: false
+        }
+      ]
+    });
+
   }
 
   private initializeCrosswordRounds() {
