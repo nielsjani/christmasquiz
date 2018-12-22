@@ -2,11 +2,13 @@ export class RoundInfo {
   private imageRounds = new Map();
   private classicRounds = new Map();
   private crosswordRounds = new Map();
+  private rodeDraadRounds = new Map();
 
   constructor() {
     this.initializeImageRounds();
     this.initializeClassicRounds();
     this.initializeCrosswordRounds();
+    this.initializeRodeDraadRounds();
   }
 
   private initializeImageRounds() {
@@ -98,6 +100,24 @@ export class RoundInfo {
         {name: "ten", answer: ["meryl streep", "streep"], hint: "Eén van de zes personen op aarde met 3 Oscars op haar naam. Vertolkte onder andere Margareth Thatcher.", solved: false}
       ]
     });
+
+    this.imageRounds.set("plekken", {
+      winnerText: "Hopelijk heb je nog een plekje in je maag gereserveerd voor het dessert straks!",
+      omschrijving: "Kan jij deze tien wereldberoemde trekpleisters afleiden uit een reeks cryptische afbeeldingen?",
+      questions: [
+        {name: "one", answer: ["Arc de Triomphe", "Ark de Triomphe"], hint: "In het midden van een rond punt in Parijs.", solved: false},
+        {name: "two", answer: ["Mont Saint-Michel", "Mont Saint Michel"], hint: "Soms geraak je er te voet, soms met een bootje", solved: false},
+        {name: "three", answer: ["Vlooybergtoren", "Vlooibergtoren"], hint: "Voorzichtig op de baan, he!", solved: false},
+        {name: "four", answer: ["Big Ben"], hint: "Ding-dong!", solved: false},
+        {name: "five", answer: ["Chinese muur", "De chinese muur"], hint: "In tegenstelling tot wat sommigen beweren is dit bouwwerk niét zichtbaar vanuit de ruimte", solved: false},
+        {name: "six", answer: ["Brandenburger Poort", "Brandenburger Tor"], hint: "Twee woorden. Als je het op z'n Duits uitspreekt wordt het tweede woord 'Tor'", solved: false},
+        {name: "seven", answer: ["Times Square", "Time Square"], hint: "Overal reclameborden, taxi's en toeristen. Eén van de beste plekken om Nieuwjaar te vieren", solved: false},
+        {name: "eight", answer: ["Christus de Verlosser", "Christ The Redeemer", "Christ The Redeemer"], hint: "Welk beroep oefent de man rechts uit?", solved: false},
+        {name: "nine", answer: ["Alhambra"], hint: "Meneer Pacino vraagt dat je het derde item op z'n Engels uitspreekt.", solved: false},
+        {name: "ten", answer: ["Eiffeltoren", "Eifeltoren"], hint: "De maker van dit bouwwerk, Gustave, leverde ook het Vrijheidsbeeld aan de VS.", solved: false}
+      ]
+    });
+
   }
 
 
@@ -476,6 +496,33 @@ export class RoundInfo {
     });
   }
 
+
+  private initializeRodeDraadRounds() {
+    this.rodeDraadRounds.set("rode-draad-1", {
+      winnerText: "Jouw outfit ziet er vandaag ook sprankelend uit",
+      omschrijving: "Vier vragen, vier antwoorden, 1 rode draad.",
+      questions: [
+        { vraag: "We zoeken de naam van een hondenras. De soort komt voort uit een ander ras dat oorspronkelijk gebruikt werd als een oud-griekse waak-, vecht- en herdershond. Later zette men deze honden zelfs in om op everzwijnen en beren te jagen. Sommigen namen zelfs deel aan stierengevechten. Het mannetje is gemiddeld 63 cm hoog en weegt 32 kg. Vrouwtjes zijn enkele kilo's en centimeters kleiner. Hij wordt omschreven als 'Een forse atleet met een tragisch denkershoofd en een speels hart',maar een blauw oog zal hij je niet snel slaan.", answer: ["Boxer", "Duitse Boxer"], solved: false},
+        { vraag: "Wat is de naam van een houder voor vloeistoffen vervaardigd uit polyethyleentereftalaat? Ze werd in 1973 gepatenteerd en wordt gebruikt als verpakking voor onder meer cosmetica, zepen, schoonmaakmiddelen en medicijnen. Meestal bevatten ze echter gewone drinkbare stoffen zoals water of frisdrank. Met drie letters kom je al een heel eind.", answer: ["Petfles", "pet"], solved: false},
+        { vraag: "Hoe heet de Belgische groep die in 1994 werd opgericht en oorspronkelijk 'Things To Come' heette? In '98 wonnen ze Humo's Rock Rally waarna singles als 'Never get enough' en 'Fool for Love' volgden. Na de release van hun plaat 'The Game' en hun daaropvolgende tour in 2012 kondigde de groep een hiatus aan die nog steeds loopt. Hun frontman begon een succesvolle solocarrière en zetelde onder meer in The Voice.", answer: ["Das Pop"], solved: false},
+        { vraag: "Een glaasje alcoholhoudende drank dat je vlak voor het slapen binnengiet, hoe heet dat ook alweer? Het is ook een synoniem voor de goudpapaver, een bloem die voorkomt in de Verenigde Staten en Mexico.", answer: ["Slaapmutsje", "Slaapmuts"], solved: false},
+        { vraag: "Wat is de rode draad?", answer: ["kleding", "kledij", "kledingstukken", "kledingstuk"], solved: false}
+      ]
+    });
+
+    this.rodeDraadRounds.set("rode-draad-2", {
+      winnerText: "Een quiztalent zoals jij kan hele inboedels winnen!",
+      omschrijving: "Nog eens vier vragen en vier antwoorden. En dan nog een rode draad.",
+      questions: [
+        { vraag: "Elk jaar wordt er in Thailand het Loi Krathong gevierd. De deelnemers van dit religieus festival maken elk een 'Khom Loi' en laten deze los als de nacht is gevallen. Hierdoor wordt de hemel gevuld met ontelbaar veel lichtjes. Wat zijn deze 'Khom Loi's in het Nederlands?", answer: ["Lampionnen", "Lampion"], solved: false},
+        { vraag: "Met een kabelbaan kan je de top van deze Zuid-Afrikaanse berg van meer dan een kilometer hoog bereiken. De berg kijkt uit over Kaapstad en heeft een typerende platte bovenkant. Wat is de naam van deze berg?", answer: ["Tafelberg"], solved: false},
+        { vraag: "De vrucht van de boom die we zoeken is een noot die met 2 tot 4 stuks in een bolster zitten. De bolster wordt gevormd door schutbladen met stekels. Onder meer eekhoorns, kraaien en muizen zijn er verzot op. Ook voor de mens is de vrucht eetbaar. Je kan ze rauw eten, poffen, roosteren of koken. Indien je ze droogt kan je ze verwerken in meel.", answer: ["Kastanje", "Tamme kastanje"], solved: false},
+        { vraag: "Dit turntoestel kan je ook in speeltuinen vinden. Het bestaat uit een aan verticale palen bevestigde legger van metaal of glasfiber. De elementen die turners aan dit toestel ondernemen zijn bijvboorbeeld de reuzenzwaai of de buikdraai. Vooraleer ze die elementen proberen te voltooien smeren ze hun handen echter best in met magnesium. Over welk toestel hebben we het?", answer: ["Rekstok"], solved: false},
+        { vraag: "Wat is de rode draad?", answer: ["meubels", "meubel", "meubilair"], solved: false}
+      ]
+    });
+  }
+
   getImageRoundQuestions(roundName) {
     return this.imageRounds.get(roundName).questions;
   }
@@ -488,11 +535,17 @@ export class RoundInfo {
     return this.classicRounds.get(roundName).questions;
   }
 
+  getRodeDraadRoundQuestions(roundName) {
+    return this.rodeDraadRounds.get(roundName).questions;
+  }
+
   getImageRoundWinnerText(roundName) {
     if (this.imageRounds.has(roundName)) {
       return this.imageRounds.get(roundName).winnerText;
     } else if(this.classicRounds.has(roundName)) {
       return this.classicRounds.get(roundName).winnerText;
+    } else if(this.rodeDraadRounds.has(roundName)) {
+      return this.rodeDraadRounds.get(roundName).winnerText;
     } else {
       return this.crosswordRounds.get(roundName).winnerText;
     }
@@ -504,6 +557,14 @@ export class RoundInfo {
 
   getCrosswordRoundOmschrijving(roundName) {
     return this.crosswordRounds.get(roundName).omschrijving;
+  }
+
+  getClassicRoundOmschrijving(rondeNaam) {
+    return this.classicRounds.get(rondeNaam).omschrijving;
+  }
+
+  getRodeDraadRoundOmschrijving(rondeNaam: any) {
+    return this.rodeDraadRounds.get(rondeNaam).omschrijving;
   }
 
   getImageRoundNames() {
@@ -518,7 +579,7 @@ export class RoundInfo {
     return Array.from(this.crosswordRounds.keys());
   }
 
-  getClassicRoundOmschrijving(rondeNaam) {
-    return this.classicRounds.get(rondeNaam).omschrijving;
+  getRodeDraadRoundNames() {
+    return Array.from(this.rodeDraadRounds.keys());
   }
 }

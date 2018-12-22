@@ -5,12 +5,14 @@ import {QuizRoundOverviewComponent} from "./quiz-round-overview/quiz-round-overv
 import {QuizRoundQuestionComponent} from "./quiz-round-question/quiz-round-question.component";
 import {LoveLetterComponent} from "./love-letter/love-letter.component";
 import {QuizRoundCrosswordComponent} from "./quiz-round-crossword/quiz-round-crossword.component";
+import {QuizRoundRodeDraadComponent} from "./quiz-round-rode-draad/quiz-round-rode-draad.component";
 
 export const QuizAppRoutes: Routes = [
   {path:'', redirectTo: 'overview', pathMatch: 'full'},
   {path: 'overview', component: QuizRoundOverviewComponent},
   {path: 'image/:quizname', component: QuizRoundImageComponent},
   {path: 'image-crossword/:quizname', component: QuizRoundCrosswordComponent},
+  {path: 'rode-draad/:quizname', component: QuizRoundRodeDraadComponent},
   {path: 'classic/:quizname', component: QuizRoundQuestionComponent},
   {path: ':quizname/solved', component: QuizRoundSolvedComponent},
   {path: 'loveletter', component: LoveLetterComponent}

@@ -10,9 +10,13 @@ export class QuizRoundQuestionComponent implements OnInit {
 
   vragen;
   guesses = [];
-  private roundName;
+  roundName;
+  activatedRoute: ActivatedRoute;
+  router: Router;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(activatedRoute: ActivatedRoute, router: Router) {
+    this.activatedRoute = activatedRoute;
+    this.router = router;
   }
 
   ngOnInit() {
@@ -41,7 +45,7 @@ export class QuizRoundQuestionComponent implements OnInit {
     }
   }
 
-  private allSolved() {
+  protected allSolved() {
     return this.vragen
         .filter(vraag => vraag.solved === false)
         .length === 0;

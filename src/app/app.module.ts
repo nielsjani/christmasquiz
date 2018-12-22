@@ -12,6 +12,7 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { QuizRoundQuestionComponent } from './quiz-round-question/quiz-round-question.component';
 import { LoveLetterComponent } from './love-letter/love-letter.component';
 import {QuizRoundCrosswordComponent} from "./quiz-round-crossword/quiz-round-crossword.component";
+import {QuizRoundRodeDraadComponent} from "./quiz-round-rode-draad/quiz-round-rode-draad.component";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {QuizRoundCrosswordComponent} from "./quiz-round-crossword/quiz-round-cro
     QuizRoundOverviewComponent,
     QuizRoundQuestionComponent,
     QuizRoundCrosswordComponent,
+    QuizRoundRodeDraadComponent,
     LoveLetterComponent
   ],
   providers: [
