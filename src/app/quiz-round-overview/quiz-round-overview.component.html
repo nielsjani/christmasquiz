@@ -13,11 +13,11 @@
 
   <div class="row">
     <div class="col-lg-4" *ngFor="let round of classicrounds">
-      <a [routerLink]="['/classic', round]">
+      <a [routerLink]="['/classic', round.roundName]">
         <img class="img-circle" style="border: 1px black solid" [src]="getRoundAvatar(round)" width="140" height="140">
       </a>
-      <h2>{{round}}</h2>
-      <p>{{getClassicRoundOmschrijving(round)}}</p>
+      <h2>{{round.roundName}}</h2>
+      <p>{{getClassicRoundOmschrijving(round.roundName)}}</p>
     </div>
   </div>
 
@@ -29,11 +29,11 @@
 
   <div class="row">
     <div class="col-lg-4" *ngFor="let round of imagerounds">
-      <a [routerLink]="['/image', round]">
+      <a [routerLink]="['/image', round.roundName]">
         <img class="img-circle" style="border: 1px black solid" [src]="getRoundAvatar(round)" width="140" height="140">
       </a>
-      <h2>{{round}}</h2>
-      <p>{{getImageRoundOmschrijving(round)}}</p>
+      <h2>{{round.roundName}}</h2>
+      <p>{{getImageRoundOmschrijving(round.roundName)}}</p>
     </div>
   </div>
 
@@ -45,11 +45,11 @@
 
   <div class="row">
     <div class="col-lg-4" *ngFor="let round of crosswordrounds">
-      <a [routerLink]="['/image-crossword', round]">
+      <a [routerLink]="['/image-crossword', round.roundName]">
         <img class="img-circle" style="border: 1px black solid" [src]="getRoundAvatar(round)" width="140" height="140">
       </a>
-      <h2>{{round}}</h2>
-      <p>{{getCrosswordRoundOmschrijving(round)}}</p>
+      <h2>{{round.roundName}}</h2>
+      <p>{{getCrosswordRoundOmschrijving(round.roundName)}}</p>
     </div>
   </div>
 
@@ -61,11 +61,11 @@
 
   <div class="row">
     <div class="col-lg-4" *ngFor="let round of rodedraadrounds">
-      <a [routerLink]="['/rode-draad', round]">
+      <a [routerLink]="['/rode-draad', round.roundName]">
         <img class="img-circle" style="border: 1px black solid" [src]="getRoundAvatar(round)" width="140" height="140">
       </a>
-      <h2>{{round}}</h2>
-      <p>{{getRodeDraadRoundOmschrijving(round)}}</p>
+      <h2>{{round.roundName}}</h2>
+      <p>{{getRodeDraadRoundOmschrijving(round.roundName)}}</p>
     </div>
   </div>
 

@@ -17,7 +17,7 @@ export class QuizRoundRodeDraadComponent extends QuizRoundQuestionComponent impl
     );
   }
 
-  backgroundColor(ind) {
+  backgroundColor(ind): string {
     return ind === this.vragen.length -1 ? '#db3a31' : super.backgroundColor(ind);
   }
 }

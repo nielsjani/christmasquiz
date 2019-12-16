@@ -37,7 +37,7 @@ export class QuizRoundOverviewComponent implements OnInit {
   }
 
   getRoundAvatar(round) {
-    return `assets/${round}/avatar.jpg`;
+    return round.isUrl ? round.link : `assets/${round.link}/avatar.jpg`;
   }
 
 }

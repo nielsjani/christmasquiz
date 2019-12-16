@@ -118,6 +118,25 @@ export class RoundInfo {
       ]
     });
 
+    this.imageRounds.set("muziek", {
+      imgUrl: "https://i.imgur.com/4zrclW9.jpg",
+      winnerText: "Jouw antwoorden klinken als muziek in de oren",
+      omschrijving: "Welke artiesten en bands werden er in deze ronde verborgen?",
+      questions: [
+        {url: "https://i.imgur.com/qPgUHxs.png", answer: ["Roxette", "Roxet"], hint: "Zangeres Marie Fredriksson overleed onlangs", solved: false},
+        {url: "https://i.imgur.com/MHE5H0l.png", answer: ["The Weeknd", "The Weekend"], hint: "Deze Canadees kan zijn gezicht niet voelen als hij bij je is", solved: false},
+        {url: "https://i.imgur.com/zk6rECh.png", answer: ["Eminem"], hint: "Deze rapper speelde ook al zichzelf in de film 8 Mile", solved: false},
+        {url: "https://i.imgur.com/ac4Dh1T.png", answer: ["Miley Cyrus"], hint: "Dochter van Billy Ray en nicht van Dolly Parton", solved: false},
+        {url: "https://i.imgur.com/qwRGUqX.png", answer: ["Amy Winehouse"], hint: "Recentste vrouwelijk lid van de 27 club", solved: false},
+        {url: "https://i.imgur.com/Uxc8vPG.png", answer: ["Deep Purple"], hint: "Rockers die begonnen in de sixties en nog steeds actief touren", solved: false},
+        {url: "https://i.imgur.com/rXTzzfI.jpg", answer: ["Nick Cave"], hint: "Zong een duet met Kylie Minogue en speelt meestal samen met zijn Bad Seeds", solved: false},
+        {url: "https://i.imgur.com/Zu5XriR.jpg", answer: ["School is cool"], hint: "Frontman Johannes Genard deed mee aan het VTM-programma 'Liefde voor Muziek'", solved: false},
+        {url: "https://i.imgur.com/MyosTo0.jpg", answer: ["Bruce Springsteen", "Springsteen"], hint: "Deze baas is geboren om te lopen", solved: false},
+        {url: "https://i.imgur.com/ZPmubzQ.png", answer: ["The Chainsmokers", "Chainsmokers"], hint: "Niels moet er van kotsen", solved: false},
+        {url: "https://i.imgur.com/Q1A2c4F.png", answer: ["Twenty-one pilots", "twentyone pilots", "21 pilots"], hint: "<hoeveel> <beroep>", solved: false}
+      ]
+    });
+
   }
 
 
@@ -476,6 +495,81 @@ export class RoundInfo {
       ]
     });
 
+    this.classicRounds.set("decennium-retrospectief", {
+      winnerText: "Tien (jaar) op tien!",
+      omschrijving: "Wat weet jij nog over de voorbije tien jaar? Omdat sommige antwoorden misschien ver weg zitten, zijn er meerdere vragen per jaar waar je op kan antwoorden",
+      questions: [
+        {
+          titel: "2010",
+          vraag: "De Slimste Mens Ter Wereld loopt voor de laatste keer op één. Tijdens deze editie nemen de beste deelnemers van de voorbije edities het tegen elkaar op. Welke comedian met opvallende snor won deze quiz zowel in 2004 als in 2010? Wie presenteerde de quiz in 2003?",
+          answer: ["Bert Kruismans won twee keer, Bruno Wyndaele presenteerde voor Eric van Looy", 'Kruismans', 'Wyndaele', 'Wijndaele', 'Weyndaele'],
+          solved: false
+        },
+
+        {
+          titel: "2011",
+          vraag: "Deze Apple topman en bedenker van onder meer de iPhone en iPod verliest de strijd tegen kanker. Hoe heet deze man? Wie volgde hem op?",
+          answer: ["Steve Jobs stierf en werd opgevolgd door Tim Cook", "Jobs", 'Cook'],
+          solved: false
+        },
+
+        {
+          titel: "2012",
+          vraag: "De Olympsche Spelen vinden plaats in Londen. Noem één Belgische medaillewinnaar (we haalden 1 zilveren medaille en twee bronzen)",
+          answer: ["Cox (Schietsport, Zilver), Van Snick (Judo, Brons), Van Acker (Zeilen, Brons)", "Cox", "Cockx", "Van Snick", "Van Snik", "Van Acker", "Van Akker"],
+          solved: false
+        },
+
+        {
+          titel: "2013",
+          vraag: "We krijgen een nieuwe paus. Jorge Mario Bergoglio zal voortaan door het leven gaan als paus Franciscus. Uit welke land komt Jorge? Vaticaanstad is een land en elk land heeft ook een voetbalploeg. Sinds hun oprichting in 1994 speelden de voetballers van Vaticaanstad al 7 interlands. Hoeveel keer wonnen ze al?",
+          answer: ["Argentinie en hun voetbalploeg won nog nooit", "Argentinie", 'Nooit', "0", 'nul'],
+          solved: false
+        },
+
+        {
+          titel: "2014",
+          vraag: "De Ice Bucket Challenge doet de ronde. Door een emmer ijswater over je heen te gieten, voel je je even als een patiënt die aan de ziekte lijdt waarvoor deze virale challenge aandacht wilt vragen. Welke ziekte zoeken we? Welke wetenschapper was de bekendste persoon die aan deze ziekte leed? Hij overleed in 2018 en hield zich vooral bezig met het heelal.",
+          answer: ["Amyotrofe laterale sclerosen Stephen Hawking", "ALS", 'Hawking'],
+          solved: false
+        },
+
+        {
+          titel: "2015",
+          vraag: "Documenten omtrent wereldwijde belastingontduiking worden gelekt naar de pers. Deze lek wordt genoemd naar een Centraal-Amerikaanse land waar de eigenaar van de documenten verbleef. Hoe heet deze leak? Enkele jaren later wordt het Belgisch voetbal getroffen door een schandaal omtrent matchfixing en omkoping. Hoe heet deze operatie?",
+          answer: ["Panama Papers/Operatie Propere Handen (of Operatie Zero)", "Panama Papers", "Operatie Propere Handen", "Operatie Zero"],
+          solved: false
+        },
+
+        {
+          titel: "2016",
+          vraag: "Wie won op 41-jarige leeftijd zijn eerste Oscar voor zijn hoofdrol in The Revenant? James Bond film Spectre gaat naar huis met de Oscar voor beste origineel nummer. Wie zong dit nummer?",
+          answer: ["Leonardo DiCaprio was beste acteur en Sam Smith verzorgde het beste nummer met Writing's on the Wall.", 'Dicaprio', 'Sam Smith'],
+          solved: false
+        },
+
+        {
+          titel: "2017",
+          vraag: "Wie werd met 6 nominaties (waarvan hij er 3 wist te verzilveren) de ster van de MIAs? Deze Max loopt er altijd zeer fashionable bij en deed in 2005 al mee aan Eurosong for kids. Welke dame won hit van het jaar? Tip: het was de eurosong inzending van dat jaar?",
+          answer: ["Oscar and the wolf won 3 keer, Blanche had de hit van het jaar te pakken (met City Lights)", 'Oscar and the wolf', 'blanche', 'blanch'],
+          solved: false
+        },
+
+        {
+          titel: "2018",
+          vraag: "Wie won de Tour de France? Welke Belg droeg even de gele trui?",
+          answer: ["Geraint Thomas won, Greg Van Avermaet mocht 7 etappes lang in het geel fietsen", "Thomas", "Van Avermaet"],
+          solved: false
+        },
+        {
+          titel: "2019",
+          vraag: "Tv-serie met Sophie Declair, Titus De Voogdt en Maaike Neuville in de hoofdrol. De serie werd steeds per twee afleveringen uitgezonden waarbij dezelfde gebeurtenissen steeds langs twee kanten bekeken werden. Welke serie zoeken we? Hoe heet de eerste Vlaamse 'duikbootfilm'?",
+          answer: ["De Dag & Torpedo", 'De dag', 'torpedo'],
+          solved: false
+        }
+      ]
+    });
+
   }
 
   private initializeCrosswordRounds() {
@@ -568,18 +662,29 @@ export class RoundInfo {
   }
 
   getImageRoundNames() {
-    return Array.from(this.imageRounds.keys());
+    return this.getRoundNames(this.imageRounds);
+  }
+
+  private getRoundNames(roundMap) {
+    return Array.from(roundMap, ([key, value]) => {
+      let imgLocation = value.imgUrl ? value.imgUrl : key;
+      return {
+        roundName: key,
+        link: imgLocation,
+        isUrl: value.imgUrl !== undefined
+      };
+    });
   }
 
   getClassicRoundNames() {
-    return Array.from(this.classicRounds.keys());
+    return this.getRoundNames(this.classicRounds);
   }
 
   getCrosswordRoundNames() {
-    return Array.from(this.crosswordRounds.keys());
+    return this.getRoundNames(this.crosswordRounds);
   }
 
   getRodeDraadRoundNames() {
-    return Array.from(this.rodeDraadRounds.keys());
+    return this.getRoundNames(this.rodeDraadRounds);
   }
 }

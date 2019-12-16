@@ -28,7 +28,7 @@ export class QuizRoundQuestionComponent implements OnInit {
     );
   }
 
-  backgroundColor(ind) {
+  backgroundColor(ind): string {
     return ind % 2 === 0 ? "#9CB7B7" : "#1D7D7D";
   }
 

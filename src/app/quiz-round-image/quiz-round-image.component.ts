@@ -41,6 +41,11 @@ export class QuizRoundImageComponent implements OnInit {
   }
 
   getCurrentImageUrl() {
+    let url = this.questions[this.currentQuestion].url;
+    return url ? url :  this.getLocalImgUrl();
+  }
+
+  private getLocalImgUrl() {
     return `../../assets/${this.roundName}/${this.getCurrentQuestionName()}.jpg`;
   }
 
