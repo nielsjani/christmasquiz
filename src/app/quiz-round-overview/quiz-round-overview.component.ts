@@ -10,6 +10,7 @@ export class QuizRoundOverviewComponent implements OnInit {
   private classicrounds;
   private crosswordrounds;
   private rodedraadrounds;
+  private puzzlerounds;
 
   constructor() { }
 
@@ -18,6 +19,7 @@ export class QuizRoundOverviewComponent implements OnInit {
     this.classicrounds = new RoundInfo().getClassicRoundNames();
     this.crosswordrounds = new RoundInfo().getCrosswordRoundNames();
     this.rodedraadrounds = new RoundInfo().getRodeDraadRoundNames();
+    this.puzzlerounds = new RoundInfo().getPuzzleRoundNames();
   }
 
   getImageRoundOmschrijving(rondeNaam) {
@@ -30,6 +32,10 @@ export class QuizRoundOverviewComponent implements OnInit {
 
   getRodeDraadRoundOmschrijving(rondeNaam) {
     return new RoundInfo().getRodeDraadRoundOmschrijving(rondeNaam);
+  }
+
+  getPuzzleRoundOmschrijving(rondeNaam) {
+    return new RoundInfo().getPuzzleRoundOmschrijving(rondeNaam);
   }
 
   getClassicRoundOmschrijving(rondeNaam) {

@@ -1,0 +1,23 @@
+<div class="container">
+  <p>We zoeken vier antwoorden. Elk antwoord heeft vier puzzelstukken die je in de juiste richting wijzen</p>
+
+  <table class="table table-bordered">
+    <tbody>
+    <tr *ngFor="let chunk of keywords">
+      <td *ngFor="let keyword of chunk">{{keyword}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h1>Correcte antwoorden:</h1>
+  <div>
+    <p *ngFor="let correctAnswer of correctAnswers">
+      {{correctAnswer}}
+    </p>
+  </div>
+
+  <div>
+    <input type="text" class="form-control" placeholder="antwoord" [(ngModel)]="currentGuess">
+    <button class="btn btn-default" type="button" (click)="checkAnswer()">Antwoord</button>
+  </div>
+</div>

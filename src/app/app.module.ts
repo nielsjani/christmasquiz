@@ -13,6 +13,7 @@ import { QuizRoundQuestionComponent } from './quiz-round-question/quiz-round-que
 import { LoveLetterComponent } from './love-letter/love-letter.component';
 import {QuizRoundCrosswordComponent} from "./quiz-round-crossword/quiz-round-crossword.component";
 import {QuizRoundRodeDraadComponent} from "./quiz-round-rode-draad/quiz-round-rode-draad.component";
+import { QuizRoundPuzzleComponent } from './quiz-round-puzzle/quiz-round-puzzle.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {QuizRoundRodeDraadComponent} from "./quiz-round-rode-draad/quiz-round-ro
     QuizRoundQuestionComponent,
     QuizRoundCrosswordComponent,
     QuizRoundRodeDraadComponent,
-    LoveLetterComponent
+    LoveLetterComponent,
+    QuizRoundPuzzleComponent
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy}

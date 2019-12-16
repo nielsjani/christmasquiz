@@ -3,12 +3,14 @@ export class RoundInfo {
   private classicRounds = new Map();
   private crosswordRounds = new Map();
   private rodeDraadRounds = new Map();
+  private puzzleRounds = new Map();
 
   constructor() {
     this.initializeImageRounds();
     this.initializeClassicRounds();
     this.initializeCrosswordRounds();
     this.initializeRodeDraadRounds();
+    this.initializePuzzleRounds();
   }
 
   private initializeImageRounds() {
@@ -617,6 +619,19 @@ export class RoundInfo {
     });
   }
 
+  private initializePuzzleRounds() {
+    this.puzzleRounds.set('puzzle-1', {
+      winnerText: 'Alle puzzelstukjes vallen op hun plaats!',
+      omschrijving: 'De puzzelronde, integraal gepikt uit De Slimste Mens',
+      questions: [
+        {answer: 'para', keywords: ['Chute', 'Sol', 'Fix', 'Maribo']},
+        {answer: 'das', keywords: ['Duits lidwoord', 'Moeilijk om te knopen', 'Woont in een burcht', 'Dat is']},
+        {answer: 'ros', keywords: ['Florence Welch', 'Clara Cleymans', 'Ed Sheeran', 'Thibault Christiaensen']},
+        {answer: 'zout', keywords: ['Umami', 'Zoet', 'Zuur', 'Bitter']}
+      ]
+    });
+  }
+
   getImageRoundQuestions(roundName) {
     return this.imageRounds.get(roundName).questions;
   }
@@ -640,8 +655,10 @@ export class RoundInfo {
       return this.classicRounds.get(roundName).winnerText;
     } else if(this.rodeDraadRounds.has(roundName)) {
       return this.rodeDraadRounds.get(roundName).winnerText;
-    } else {
+    } else if(this.crosswordRounds.has(roundName)){
       return this.crosswordRounds.get(roundName).winnerText;
+    }else {
+      return this.puzzleRounds.get(roundName).winnerText;
     }
   }
 
@@ -659,6 +676,10 @@ export class RoundInfo {
 
   getRodeDraadRoundOmschrijving(rondeNaam: any) {
     return this.rodeDraadRounds.get(rondeNaam).omschrijving;
+  }
+
+  getPuzzleRoundOmschrijving(rondeNaam: any) {
+    return this.puzzleRounds.get(rondeNaam).omschrijving;
   }
 
   getImageRoundNames() {
@@ -686,5 +707,13 @@ export class RoundInfo {
 
   getRodeDraadRoundNames() {
     return this.getRoundNames(this.rodeDraadRounds);
+  }
+
+  getPuzzleRoundNames() {
+    return this.getRoundNames(this.puzzleRounds);
+  }
+
+  getPuzzleRound(roundName: any) {
+    return this.puzzleRounds.get(roundName);
   }
 }

@@ -69,4 +69,20 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-lg-4">
+      <h2>Puzzelrondes</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let round of puzzlerounds">
+      <a [routerLink]="['/puzzle', round.roundName]">
+        <img class="img-circle" style="border: 1px black solid" [src]="getRoundAvatar(round)" width="140" height="140">
+      </a>
+      <h2>{{round.roundName}}</h2>
+      <p>{{getPuzzleRoundOmschrijving(round.roundName)}}</p>
+    </div>
+  </div>
+
 </div>
